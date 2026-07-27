@@ -34,7 +34,7 @@ acconunt takeover partindo de xss
 ```
 <br>
 
-## **2. POC2**
+## **2. POC 2**
 <br>
 
 **Web Cache Deception**

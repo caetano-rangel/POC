@@ -1,4 +1,4 @@
-# POC - Practical Examples
+<h1 align="center">POC - Practical Examples</h1>
 <br>
 
 <div align="center">
@@ -24,5 +24,30 @@
 
 **Acconunt Takeover partindo de Xss**
 ```bash
-POC1 aqui
+campo name -->
+<img/src/onerror='alert(1)'> -->
+pagina /welcome refletiu (procurar onde reflete) -->
+apenas isso sem impacto, necessita aumentar -->
+magic link onde entra direto na pagina welcome podendo enviar o link direto -->
+script de formulario que manda para o myserver com os dados -->
+acconunt takeover partindo de xss
 ```
+<br>
+
+## **2. POC2**
+<br>
+
+**Web Cache Deception**
+```bash
+faz o upload de alguma extensão que fique em cache -->
+id na url ou coisa parecida linkando para o arquivo -->
+no burp acessar a url ex: doc/12345 -->
+adicionar .js ou .css no endpoint ou outra extensão -->
+verificar o status code 200 e o cache-control -->
+public e max-age -->
+x-cache MISS envie novamente até x-cache HIT -->
+cache deception confirmado -->
+apos isso simular
+```
+<br>
+

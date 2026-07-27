@@ -11,10 +11,10 @@
 | Section | Description |
 |---------|-------------|
 | [POC 1](#POC-1) | Acconunt Takeover partindo de Xss |
-| 2. [POC 2](#POC2) | Web Cache Deception |
-| 3. [POC 3](#POC3) | Xss + WAF bypass |
-| 4. [POC 4](#POC4) | Email Verify Bypass |
-| 5. [POC 5](#POC5) | Image Upload com XSS Interno |
+| [POC 2](#POC-2) | Web Cache Deception |
+| [POC 3](#POC-3) | Xss + WAF bypass |
+| [POC 4](#POC-4) | Email Verify Bypass |
+| [POC 5](#POC-5) | Image Upload com XSS Interno |
 
 ---
 <br>
@@ -34,7 +34,7 @@ acconunt takeover partindo de xss
 ```
 <br>
 
-## **2. POC 2**
+## **POC 2**
 <br>
 
 **Web Cache Deception**
@@ -51,3 +51,44 @@ apos isso simular
 ```
 <br>
 
+## **POC 3**
+<br>
+
+**Xss + WAF bypass**
+```bash
+verificou que refletia -->
+saiu da div com o payload </div><script.. -->
+firewall modsecurity (firewall web) block -->
+tentou com outro payload </div><svg onload=alert("test")> -->
+continua testando payload e consegue com </div><svg> -->
+entende que o svg nao é bloqueado e provavelmente o alert sim -->
+</div><svg onload=confirm("test")> confirmando a hipotese -->
+existem payloads direcionados para bypass diferentes
+```
+<br>
+
+## **POC 4**
+<br>
+
+**Email Verify Bypass**
+```bash
+recebe o link de verificação -->
+intercepta com o burp e verifica -->
+criar outra conta como attacker email (onde supostamente nao temos acesso) -->
+copiar o id -->
+remove o token e substitui o id antigo pelo novo -->
+obs: precisa logar e depois fazer a verificação, nao apos o cadastro
+```
+<br>
+
+## **POC 5**
+<br>
+
+**Image Upload com XSS Interno**
+```bash
+upload de imagem com xss interno -->
+content typ de image/png para text/html no intercept (não repeater) -->
+inspect element e abra em outra aba -->
+link url do stored xss
+```
+<br>

